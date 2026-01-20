@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+    --background: #fff;
+    --foreground: #171717;
+
+    --carbon-black: #1c1e21;
+    --prussian-blue: #11112d;
+    --bright-teal-blue: #2379ad;
+    --turquoise-surf: #13a2bf;
+    --tech-teal: #19ddbf;
+}
+
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --color-off-whitey: #f8fafc;
+    --color-web-black: #101010;
+
+    --color-dlt-prussian-blue: #11112d;
+    --color-dlt-carbon-black: #1c1e21;
+    --color-dlt-bright-teal-blue: #2379ad;
+    --color-dlt-turquoise-surf: #13a2bf;
+    --color-dlt-tech-teal: #19ddbf;
+
+    --color-dlt-bright-teal-blue-50: #f2f9fd;
+    --color-dlt-bright-teal-blue-100: #e5f0f9;
+    --color-dlt-bright-teal-blue-200: #c5e1f2;
+    --color-dlt-bright-teal-blue-300: #92c9e7;
+    --color-dlt-bright-teal-blue-400: #57acd9;
+    --color-dlt-bright-teal-blue-500: #3193c6;
+    --color-dlt-bright-teal-blue-600: #2379ad;
+    --color-dlt-bright-teal-blue-700: #1d5e87;
+    --color-dlt-bright-teal-blue-800: #1b5071;
+    --color-dlt-bright-teal-blue-900: #1c445e;
+    --color-dlt-bright-teal-blue-950: #122b3f;
+
+    --color-dlt-turquoise-surf-50: #edfdfe;
+    --color-dlt-turquoise-surf-100: #d2f6fb;
+    --color-dlt-turquoise-surf-200: #abecf6;
+    --color-dlt-turquoise-surf-300: #71deef;
+    --color-dlt-turquoise-surf-400: #30c5e0;
+    --color-dlt-turquoise-surf-500: #13a2bf;
+    --color-dlt-turquoise-surf-600: #1387a7;
+    --color-dlt-turquoise-surf-700: #176c87;
+    --color-dlt-turquoise-surf-800: #1b596f;
+    --color-dlt-turquoise-surf-900: #1b4a5e;
+    --color-dlt-turquoise-surf-950: #0c3040;
+
+    --color-dlt-tech-teal-50: #effefb;
+    --color-dlt-tech-teal-100: #c7fff2;
+    --color-dlt-tech-teal-200: #8fffe7;
+    --color-dlt-tech-teal-300: #50f8d9;
+    --color-dlt-tech-teal-400: #19ddbf;
+    --color-dlt-tech-teal-500: #03c9ae;
+    --color-dlt-tech-teal-600: #00a28f;
+    --color-dlt-tech-teal-700: #048174;
+    --color-dlt-tech-teal-800: #09665d;
+    --color-dlt-tech-teal-900: #0d544d;
+    --color-dlt-tech-teal-950: #003331;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
