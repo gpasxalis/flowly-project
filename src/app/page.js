@@ -13,8 +13,8 @@ export default function Home() {
                 <Profile />
                 <InfoCard />
                 <Portfolio />
-                <Dock />
             </main>
+            <Dock />
             <Footer />
         </>
     );
