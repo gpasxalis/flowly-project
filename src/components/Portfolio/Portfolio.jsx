@@ -36,7 +36,7 @@ export default function Portfolio() {
                             className="h-36 w-full object-cover opacity-95 group-hover:scale-[1.02] transition"
                             onError="this.closest('button').style.display='none'"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent"></div>
                         <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
                             <div className="text-xs font-semibold text-white/90 truncate">
                                 epapanikolaou.gr
@@ -57,7 +57,7 @@ export default function Portfolio() {
                             className="h-36 w-full object-cover opacity-95 group-hover:scale-[1.02] transition"
                             onError="this.closest('button').style.display='none'"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent"></div>
                         <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
                             <div className="text-xs font-semibold text-white/90 truncate">
                                 Realism
@@ -79,7 +79,7 @@ export default function Portfolio() {
                             onError="this.closest('button').style.display='none'"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent"></div>
                         <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
                             <div className="text-xs font-semibold text-white/90 truncate">
                                 Realism
@@ -101,7 +101,7 @@ export default function Portfolio() {
                             onError="this.closest('button').style.display='none'"
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent"></div>
                         <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-2">
                             <div className="text-xs font-semibold text-white/90 truncate">
                                 Realism

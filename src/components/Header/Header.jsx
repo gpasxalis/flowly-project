@@ -21,7 +21,7 @@ export default function Header() {
     return (
         <>
             <QrShare isOpen={open} onClose={handleClose} />
-            <header className="relative z-20 mx-auto max-w-[980px] mt-6 max-w-6xl px-4">
+            <header className="relative z-20 mx-auto max-w-245 mt-6 px-4">
                 <div className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
                     <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-xl px-4 py-3 shadow-xl">
                         {/* Left */}

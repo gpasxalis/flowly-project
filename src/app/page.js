@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            <main className="pt-4 mx-auto max-w-[980px] px-4 safe-bottom grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <main className="pt-4 mx-auto max-w-245 px-4 safe-bottom grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <Profile />
                 <InfoCard />
                 <Portfolio />

@@ -16,8 +16,8 @@ const fontRoboto = Roboto({
 });
 
 export const metadata = {
-    title: "Dalution | by Flowly",
-    description: "Flowly profile page of Dalution",
+    title: "Dalution | Digital Business Card by Flowly",
+    description: "Dalution Digital Business Card - a Flowly project",
 };
 
 export default function RootLayout({ children }) {

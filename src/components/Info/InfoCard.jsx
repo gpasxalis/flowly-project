@@ -82,10 +82,10 @@ const InfoCard = () => {
                                     </span>
                                 </span>
                                 <span className="min-w-0 flex flex-col gap-0.5">
-                                    <h4 className="text-xs font-semibold text-white/90 leading-tight break-words">
+                                    <h4 className="text-xs font-semibold text-white/90 leading-tight wrap-break-word">
                                         {item.label}
                                     </h4>
-                                    <p className="text-xs text-white/60 leading-tight break-words">
+                                    <p className="text-xs text-white/60 leading-tight wrap-break-word">
                                         {item.text}
                                     </p>
                                 </span>
@@ -121,7 +121,7 @@ const InfoCard = () => {
                             <h4 className="font-semibold text-white/80">
                                 Dalution
                             </h4>
-                            <div className="break-words">@dalution.gr</div>
+                            <div className="wrap-break-word">@dalution.gr</div>
                         </div>
                     </div>
                 </div>
