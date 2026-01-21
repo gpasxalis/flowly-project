@@ -1,45 +1,10 @@
 import { GalleryThumbnails } from "lucide-react";
 import { PortfolioGallery } from "@/components/Portfolio";
 
-import logo from "../../../public/brand/logo.png";
-import epapanikolaou from "../../../public/portfolio/epapanikolaou-website.jpg";
-import karasakalidis from "../../../public/portfolio/karasakalidis-website.jpg";
+import { profile } from "@/data/profile";
 
 export default function Portfolio() {
-    const items = [
-        {
-            id: "epapanikolaou",
-            title: "epapanikolaou.gr",
-            subtitle: "Preview",
-            image: epapanikolaou,
-            fullSrc: epapanikolaou.src,
-            href: "https://epapanikolaou.gr",
-            ariaLabel: "Open sample: epapanikolaou.gr",
-        },
-        {
-            id: "karasakalidis",
-            title: "karasakalidisltd.com",
-            subtitle: "Preview",
-            image: karasakalidis,
-            fullSrc: karasakalidis.src,
-            href: "https://karasakalidisltd.com",
-            ariaLabel: "Open sample: karasakalidisltd.com",
-        },
-        {
-            id: "test1",
-            title: "Realism",
-            subtitle: "Preview",
-            // fullSrc: "/media/realism2.jpeg",
-            ariaLabel: "Open sample: Realism",
-        },
-        {
-            id: "test2",
-            title: "Realism",
-            subtitle: "Preview",
-            // fullSrc: "/media/realism3.jpeg",
-            ariaLabel: "Open sample: Realism",
-        },
-    ];
+    const portfolioItems = profile.portfolio;
 
     return (
         <section className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl shadow-lg">
@@ -47,10 +12,10 @@ export default function Portfolio() {
                 <div className="flex items-center justify-between gap-3">
                     <div className="flex flex-col gap-2">
                         <h3 className="text-[9px] uppercase tracking-widest text-white/90 bg-indigo-600/40 backdrop-blur-xl w-fit px-2 py-1 rounded-full">
-                            Portfolio
+                            {portfolioItems.badge}
                         </h3>
                         <h4 className="text-lg text-white/90 font-semibold">
-                            Samples
+                            {portfolioItems.title}
                         </h4>
                     </div>
 
@@ -62,10 +27,13 @@ export default function Portfolio() {
                     </div>
                 </div>
 
-                <PortfolioGallery items={items} fallbackImage={logo} />
+                <PortfolioGallery
+                    items={portfolioItems.items}
+                    fallbackImage={portfolioItems.fallbackImage}
+                />
 
                 <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 backdrop-blur px-4 py-3 text-sm text-white/70">
-                    Tap a sample to view full-screen.
+                    {portfolioItems.helperText}
                 </div>
             </div>
         </section>

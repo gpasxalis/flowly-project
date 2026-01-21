@@ -1,12 +1,20 @@
+import { profile } from "@/data/profile";
+
 export default function ProfileBody() {
+    const lines = profile?.hero?.body?.lines || [];
+
+    if (!lines.length) return null;
+
     return (
-        <div className="rounded-md py-3">
-            <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-white/90">
-                Μετατρέποντας ιδέες σε ψηφιακές λύσεις
-            </p>
-            <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-white/90">
-                Δωρεάν Αξιολόγηση Ιστοσελίδας
-            </p>
+        <div className="rounded-md py-3 space-y-1">
+            {lines.map((line, index) => (
+                <p
+                    key={index}
+                    className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-white/90"
+                >
+                    {line}
+                </p>
+            ))}
         </div>
     );
 }

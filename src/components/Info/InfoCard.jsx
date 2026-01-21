@@ -8,64 +8,38 @@ import {
 } from "lucide-react";
 
 import Link from "next/link";
+import { profile } from "@/data/profile";
 
-const infoItems = [
-    {
-        href: "tel:+306978101030",
-        label: "Τηλέφωνο",
-        text: "+306978101030",
-        icon: Phone,
-    },
-    {
-        href: "sms:+306978101030",
-        label: "Μήνυμα",
-        text: "+306978101030",
-        icon: MessageCircle,
-    },
-
-    {
-        href: "https://dalution.gr",
-        label: "Website",
-        text: "dalution.gr",
-        icon: Globe,
-    },
-    {
-        href: "mailto:info@dalution.gr",
-        label: "Email",
-        text: "info@dalution.gr",
-        icon: Mail,
-    },
-];
-
-const socialItems = [
-    {
-        href: "https://facebook.com/dalution.gr",
-        label: "Facebook",
-        icon: Facebook,
-    },
-    {
-        href: "https://instagram.com/dalution.gr",
-        label: "Instagram",
-        icon: Instagram,
-    },
-];
+const ICONS = {
+    Globe,
+    Mail,
+    MessageCircle,
+    Phone,
+    Instagram,
+    Facebook,
+};
 
 const InfoCard = () => {
+    const d = profile.infoCard;
+
+    const infoItems = d.infoItems || [];
+    const socialItems = d.socialItems || [];
+
     return (
         <section className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl shadow-lg">
             <div className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xl p-5 h-full w-full">
                 <div className="flex flex-col gap-2">
                     <h3 className="text-[9px] uppercase tracking-widest text-white/90 bg-indigo-600/40 backdrop-blur-xl w-fit px-2 py-1 rounded-full">
-                        Contact
+                        {d.badge}
                     </h3>
                     <h4 className="text-lg text-white/90 font-semibold">
-                        Επικοινωνία
+                        {d.title}
                     </h4>
                 </div>
 
                 <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 gap-3">
                     {infoItems.map((item) => {
-                        const Icon = item.icon;
+                        const Icon = ICONS[item.icon];
 
                         return (
                             <Link
@@ -78,7 +52,7 @@ const InfoCard = () => {
                             >
                                 <span className="shrink-0 h-11 w-11 rounded-2xl bg-indigo-600/20 border border-white/10 flex items-center justify-center">
                                     <span className="h-5 w-5 text-white/90">
-                                        <Icon size={18} />
+                                        {Icon ? <Icon size={18} /> : null}
                                     </span>
                                 </span>
                                 <span className="min-w-0 flex flex-col gap-0.5">
@@ -96,11 +70,11 @@ const InfoCard = () => {
 
                 <div className="mt-5 rounded-2xl border border-white/10 bg-web-black backdrop-blur-md p-4">
                     <h4 className="text-xs font-semibold tracking-wide text-white/80">
-                        Social
+                        {d.socialTitle}
                     </h4>
                     <div className="mt-3 flex items-center gap-3">
                         {socialItems.map((item) => {
-                            const Icon = item.icon;
+                            const Icon = ICONS[item.icon];
 
                             return (
                                 <Link
@@ -108,20 +82,27 @@ const InfoCard = () => {
                                     href={item.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Facebook"
+                                    aria-label={item.label}
                                     className="h-12 w-12 rounded-2xl bg-indigo-600/20 border border-white/10 flex items-center justify-center"
                                     title={item.label}
                                 >
-                                    <Icon size={18} className="text-white/90" />
+                                    {Icon ? (
+                                        <Icon
+                                            size={18}
+                                            className="text-white/90"
+                                        />
+                                    ) : null}
                                 </Link>
                             );
                         })}
 
                         <div className="ml-auto text-xs text-white/60 leading-tight">
                             <h4 className="font-semibold text-white/80">
-                                Dalution
+                                {d.footerRight?.name}
                             </h4>
-                            <div className="wrap-break-word">@dalution.gr</div>
+                            <div className="wrap-break-word">
+                                {d.footerRight?.handle}
+                            </div>
                         </div>
                     </div>
                 </div>

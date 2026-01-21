@@ -2,13 +2,14 @@
 
 import { HeaderButtons } from "@/components/Header";
 import { QrShare } from "@/components/Features";
+import { profile } from "@/data/profile";
 
 import Image from "next/image";
 import { useState } from "react";
 
-import logo from "../../../public/brand/logo_symbol.png";
-
 export default function Header() {
+    const { header } = profile;
+
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(true);
@@ -25,8 +26,10 @@ export default function Header() {
                         <div className="flex items-center gap-3">
                             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 border border-gray-400/30 text-white/70">
                                 <Image
-                                    src={logo}
-                                    alt="Profile photo"
+                                    src={header.logoSrc}
+                                    alt={`${header.name} logo`}
+                                    width={40}
+                                    height={40}
                                     className="h-auto w-2/3 object-cover"
                                 />
                             </div>
@@ -36,7 +39,7 @@ export default function Header() {
                                     Digital Card
                                 </p>
                                 <p className="font-header text-sm font-medium text-white/90">
-                                    Dalution
+                                    {header.name}
                                 </p>
                             </div>
                         </div>
