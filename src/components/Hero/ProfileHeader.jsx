@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { UserPlus } from "lucide-react";
 
-import logo from "../../../public/images/logo.png";
+import logo from "../../../public/brand/logo.png";
 
 export default function ProfileHeader() {
     return (

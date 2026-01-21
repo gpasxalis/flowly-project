@@ -1,38 +1,33 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
-import HeaderButtons from "./HeaderButtons";
+import { HeaderButtons } from "@/components/Header";
+import { QrShare } from "@/components/Features";
+
 import Image from "next/image";
-import QrShare from "../UI/QrShare";
-import logo from "../../../public/images/logo_symbol.png";
 import { useState } from "react";
+
+import logo from "../../../public/brand/logo_symbol.png";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
         <>
             <QrShare isOpen={open} onClose={handleClose} />
-            <header className="relative z-20 mx-auto max-w-245 mt-6 px-4">
+
+            <header className="sticky top-4 z-50 mx-auto max-w-245 mt-6 px-4">
                 <div className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
                     <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-xl px-4 py-3 shadow-xl">
                         {/* Left */}
                         <div className="flex items-center gap-3">
                             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 border border-gray-400/30 text-white/70">
-                                {/* <Sparkles size={18} /> */}
                                 <Image
                                     src={logo}
                                     alt="Profile photo"
                                     className="h-auto w-2/3 object-cover"
-                                    onError="this.style.display='none'"
                                 />
                             </div>
 
@@ -54,15 +49,5 @@ export default function Header() {
                 </div>
             </header>
         </>
-    );
-}
-
-/* Internal component */
-function ActionButton({ icon: Icon, label }) {
-    return (
-        <button className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white">
-            <Icon size={16} />
-            <span className="hidden sm:inline">{label}</span>
-        </button>
     );
 }

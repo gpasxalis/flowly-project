@@ -1,7 +1,3 @@
-import ActionButtons from "./ActionButtons";
-import ProfileHeader from "./ProfileHeader";
-import ProfileBody from "./ProfileBody";
-
 export default function About() {
     return (
         <div className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl shadow-lg h-1/2">

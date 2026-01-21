@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Phone, Mail, QrCode, Share2, UserPlus, LinkIcon } from "lucide-react";
 import { useState } from "react";
 
-import QrShare from "../UI/QrShare";
+import { QrShare } from "@/components/Features";
 
 const items = [
     {

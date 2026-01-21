@@ -1,12 +1,12 @@
-import Modal from "./Modal";
+import { Modal } from "../UI";
 import { usePathname } from "next/navigation";
 import QRCode from "react-qr-code";
 
-export default function QrShare(props) {
+export default function QrShare({ isOpen, onClose }) {
     const url = usePathname();
 
     return (
-        <Modal onClose={props.onClose} isOpen={props.isOpen}>
+        <Modal onClose={onClose} isOpen={isOpen}>
             <div className="flex h-max w-full justify-center">
                 <div className="bg-white p-3 rounded-md">
                     <QRCode value={url} />

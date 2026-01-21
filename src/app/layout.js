@@ -1,6 +1,8 @@
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
+import { getSiteUrl } from "@/lib/siteUrl";
+
 const fontInter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
@@ -16,8 +18,23 @@ const fontRoboto = Roboto({
 });
 
 export const metadata = {
-    title: "Dalution | Digital Business Card by Flowly",
-    description: "Dalution Digital Business Card - a Flowly project",
+    metadataBase: new URL(getSiteUrl()),
+    title: {
+        default: "Flowly | Digital cards by Dalution",
+        template: "%s | Flowly",
+    },
+    description:
+        "Premium digital business cards που συνδυάζουν design και καθαρή υλοποίηση. Powered by Dalution.",
+    openGraph: {
+        type: "website",
+        siteName: "Flowly",
+        locale: "el_GR",
+        images: [{ url: "/og.png", width: 1200, height: 630, alt: "Flowly" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        images: ["/og.png"],
+    },
 };
 
 export default function RootLayout({ children }) {

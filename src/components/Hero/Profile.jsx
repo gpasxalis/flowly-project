@@ -1,7 +1,9 @@
-import ActionButtons from "./ActionButtons";
-import ProfileHeader from "./ProfileHeader";
-import ProfileBody from "./ProfileBody";
-import About from "./About";
+import {
+    ProfileBody,
+    ProfileHeader,
+    ActionButtons,
+    About,
+} from "@/components/Hero";
 
 export default function Profile() {
     return (

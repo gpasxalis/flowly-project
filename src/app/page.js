@@ -1,9 +1,9 @@
-import Profile from "@/components/Hero/Profile";
-import Portfolio from "@/components/Portfolio/Portfolio";
-import InfoCard from "@/components/Info/InfoCard";
-import Dock from "@/components/Dock/Dock";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
+import { Profile } from "@/components/Hero";
+import { Portfolio } from "@/components/Portfolio";
+import { InfoCard } from "@/components/Info";
+import { Dock } from "@/components/Dock";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 export default function Home() {
     return (
@@ -14,8 +14,8 @@ export default function Home() {
                 <InfoCard />
                 <Portfolio />
             </main>
-            <Dock />
             <Footer />
+            <Dock />
         </>
     );
 }

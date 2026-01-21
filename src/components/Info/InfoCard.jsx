@@ -39,12 +39,12 @@ const infoItems = [
 
 const socialItems = [
     {
-        href: "https://facebook.com/PronorthITconsultants",
+        href: "https://facebook.com/dalution.gr",
         label: "Facebook",
         icon: Facebook,
     },
     {
-        href: "https://facebook.com/dalution.gr",
+        href: "https://instagram.com/dalution.gr",
         label: "Instagram",
         icon: Instagram,
     },

@@ -1,7 +1,6 @@
 "use client";
 
 import { Share2, QrCode, LinkIcon } from "lucide-react";
-import QrShare from "../UI/QrShare";
 
 export default function HeaderButtons(props) {
     const handleShare = async () => {
