@@ -34,7 +34,7 @@ export default function CookieNotice({
     if (!visible) return null;
 
     return (
-        <div className="fixed inset-x-0 bottom-5 z-[9999] px-4">
+        <div className="fixed inset-x-0 bottom-5 z-9999 px-4">
             <div className="mx-auto w-full max-w-xl">
                 <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
                     <div className="flex items-center justify-between gap-4 px-4 py-3">
