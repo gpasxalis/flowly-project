@@ -2,6 +2,7 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
 import { getSiteUrl } from "@/lib/siteUrl";
+import Provider from "@/components/UI/Provider";
 
 const fontInter = Inter({
     subsets: ["latin"],
@@ -41,9 +42,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="el">
             <body
-                className={`${fontInter.variable} ${fontRoboto.variable} min-h-screen [background:radial-gradient(125%_125%_at_50%_100%,#000000_40%,#010133_100%)] antialiased pt-4 pb-32`}
+                className={`${fontInter.variable} ${fontRoboto.variable} min-h-screen [background:radial-gradient(circle_at_center,#c4b5fd,transparent)] dark:[background:radial-gradient(125%_125%_at_50%_100%,#000000_40%,#2b0133_100%)] antialiased pt-4 pb-32`}
             >
-                {children}
+                <Provider>{children}</Provider>
             </body>
         </html>
     );

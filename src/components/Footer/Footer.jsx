@@ -5,8 +5,8 @@ import logo from "../../../public/brand/logo_symbol.png";
 export default function Footer() {
     return (
         <footer className="relative z-10 mt-8 mx-auto max-w-245 px-4 safe-bottom">
-            <div className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
-                <div className="rounded-2xl bg-white/10 backdrop-blur-xl shadow-xl mx-auto flex items-center justify-between gap-4 px-6 py-6 text-center text-sm text-white/70">
+            <div className="bg-white/30 dark:bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
+                <div className="rounded-2xl bg-white/10 backdrop-blur-xl shadow-xl mx-auto flex items-center justify-between gap-4 px-6 py-6 text-center text-sm text-web-black/70 dark:text-white/70">
                     {/* Logo */}
                     <div className="flex items-center gap-3">
                         <Image src={logo} alt="Dalution logo" width={30} />
@@ -16,7 +16,7 @@ export default function Footer() {
                                 href="https://dalution.gr"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-medium transition hover:text-dlt-bright-teal-blue focus:text-dlt-bright-teal-blue active:text-dlt-bright-teal-blue"
+                                className="font-medium transition hover:text-indigo-600 focus:text-indigo-600 active:text-indigo-600 hover:dark:text-dlt-bright-teal-blue focus:dark:text-dlt-bright-teal-blue active:dark:text-dlt-bright-teal-blue"
                             >
                                 Dalution
                             </Link>
@@ -29,7 +29,7 @@ export default function Footer() {
                             href="https://dalution.gr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-medium transition hover:text-dlt-bright-teal-blue focus:text-dlt-bright-teal-blue active:text-dlt-bright-teal-blue"
+                            className="font-medium transition hover:text-indigo-600 focus:text-indigo-600 active:text-indigo-600 hover:dark:text-dlt-bright-teal-blue focus:dark:text-dlt-bright-teal-blue active:dark:text-dlt-bright-teal-blue"
                         >
                             Flowly project
                         </Link>

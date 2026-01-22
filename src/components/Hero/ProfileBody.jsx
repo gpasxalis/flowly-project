@@ -10,7 +10,7 @@ export default function ProfileBody() {
             {lines.map((line, index) => (
                 <p
                     key={index}
-                    className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-white/90"
+                    className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-web-black/80 dark:text-white/90"
                 >
                     {line}
                 </p>

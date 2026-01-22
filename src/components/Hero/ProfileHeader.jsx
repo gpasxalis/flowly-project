@@ -35,10 +35,10 @@ export default function ProfileHeader() {
                 </div>
 
                 <div className="min-w-0">
-                    <h1 className="font-head text-2xl sm:text-3xl text-white/90 truncate">
+                    <h1 className="font-head text-2xl sm:text-3xl text-web-black/90 dark:text-white/90 truncate">
                         {hero.name}
                     </h1>
-                    <p className="mt-1 text-sm sm:text-base text-white/70">
+                    <p className="mt-1 text-sm sm:text-base text-web-black/60 dark:text-white/70">
                         {hero.title}
                     </p>
                 </div>
@@ -49,7 +49,7 @@ export default function ProfileHeader() {
                     <Link
                         href={hero.vcf.href}
                         download
-                        className="p-3 flex justify-center rounded-2xl bg-white/10 border border-gray-400/30 text-white/70 font-semibold items-center gap-2 shadow-xl"
+                        className="p-3 flex justify-center rounded-2xl bg-white/70 dark:bg-white/10 border border-gray-400/30 text-web-black/70 dark:text-white/70 font-semibold items-center gap-2 shadow-xl"
                         aria-label="Add to contacts"
                     >
                         <UserPlus size={18} />
