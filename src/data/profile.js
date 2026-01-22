@@ -51,7 +51,7 @@ export const profile = {
             },
             website: {
                 label: "Website",
-                title: "Add me to your Contacts",
+                title: "Visit my Website",
                 value: "https://dalution.gr",
             },
         },
@@ -164,6 +164,43 @@ export const profile = {
         footerRight: {
             name: "Dalution",
             handle: "@dalution.gr",
+        },
+    },
+
+    dock: {
+        items: [
+            {
+                type: "link",
+                href: "tel:+306978101030",
+                label: "Call",
+                icon: "Phone",
+            },
+            {
+                type: "link",
+                href: "mailto:info@dalution.gr",
+                label: "Email",
+                icon: "Mail",
+            },
+        ],
+
+        vcard: {
+            enabled: true,
+            href: "/vcards/pgrammenos.vcf",
+            label: "Επαφή",
+            icon: "UserPlus",
+        },
+
+        qr: {
+            label: "QrCode",
+            icon: "QrCode",
+        },
+
+        share: {
+            text: "Δες αυτό το Flowly profile",
+            labelShare: "Share",
+            labelCopy: "Copy",
+            iconShare: "Share2",
+            iconCopy: "LinkIcon",
         },
     },
 };

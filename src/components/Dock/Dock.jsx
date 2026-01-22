@@ -5,58 +5,50 @@ import { Phone, Mail, QrCode, Share2, UserPlus, LinkIcon } from "lucide-react";
 import { useState } from "react";
 
 import { QrShare } from "@/components/Features";
+import { profile } from "@/data/profile";
 
-const items = [
-    {
-        href: "tel:+306978101030",
-        label: "Call",
-        icon: Phone,
-    },
-    {
-        href: "mailto:info@dalution.gr",
-        label: "Email",
-        icon: Mail,
-    },
-];
-
-const handleShare = async () => {
-    const url = window.location.href;
-
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: document.title,
-                text: "Δες αυτό το Flowly profile",
-                url,
-            });
-            return;
-        } catch {
-            // user cancelled
-        }
-    }
-
-    // Fallback
-    await navigator.clipboard.writeText(url);
-    alert("Link copied to clipboard");
+const ICONS = {
+    Phone,
+    Mail,
+    QrCode,
+    Share2,
+    UserPlus,
+    LinkIcon,
 };
 
 export default function Dock() {
     const [open, setOpen] = useState(false);
+    const itemDock = profile.dock;
 
-    const handleOpen = () => {
-        setOpen(true);
+    const handleShare = async () => {
+        const url = window.location.href;
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: document.title,
+                    text: itemDock.share.text,
+                    url,
+                });
+                return;
+            } catch {
+                // user cancelled
+            }
+        }
+
+        await navigator.clipboard.writeText(url);
+        alert("Link copied to clipboard");
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
     return (
         <>
-            <QrShare isOpen={open} onClose={handleClose} />
+            <QrShare isOpen={open} onClose={() => setOpen(false)} />
+
             <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
                 <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 backdrop-blur-xl px-1 py-1 shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
-                    {items.map((item) => {
-                        const Icon = item.icon;
+                    {/* LINK ITEMS */}
+                    {itemDock.items.map((item) => {
+                        const Icon = ICONS[item.icon];
 
                         return (
                             <Link
@@ -64,39 +56,42 @@ export default function Dock() {
                                 href={item.href}
                                 className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white active:bg-white/10 active:text-white focus:bg-white/10 focus:text-white"
                             >
-                                <Icon
-                                    size={16}
-                                    className="opacity-80 group-hover:opacity-100"
-                                />
+                                {Icon && (
+                                    <Icon size={16} className="opacity-80" />
+                                )}
                                 <span className="text-[9px]">{item.label}</span>
                             </Link>
                         );
                     })}
 
-                    <Link
-                        href="./vcard.vcf"
-                        download
-                        className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white active:bg-white/10 active:text-white focus:bg-white/10 focus:text-white"
-                    >
-                        <UserPlus
-                            size={16}
-                            className="opacity-80 group-hover:opacity-100"
-                        />
-                        <span className="text-[9px]">Επαφή</span>
-                    </Link>
+                    {/* VCARD */}
+                    {itemDock.vcard?.enabled && (
+                        <Link
+                            href={itemDock.vcard.href}
+                            download
+                            className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white active:bg-white/10 active:text-white focus:bg-white/10 focus:text-white"
+                        >
+                            <UserPlus size={16} className="opacity-80" />
+                            <span className="text-[9px]">
+                                {itemDock.vcard.label}
+                            </span>
+                        </Link>
+                    )}
 
-                    {/* Theme icon (placeholder) */}
+                    {/* Divider */}
                     <div className="mx-1 h-6 w-px bg-white/10" />
 
+                    {/* QR */}
                     <button
                         className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white active:bg-white/10 active:text-white focus:bg-white/10 focus:text-white"
-                        aria-label="QrCode"
-                        onClick={handleOpen}
+                        aria-label={itemDock.qr.label}
+                        onClick={() => setOpen(true)}
                     >
                         <QrCode size={16} />
-                        <span className="text-[9px]">QrCode</span>
+                        <span className="text-[9px]">{itemDock.qr.label}</span>
                     </button>
 
+                    {/* SHARE */}
                     <button
                         className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white active:bg-white/10 active:text-white focus:bg-white/10 focus:text-white"
                         aria-label="Share"
@@ -105,14 +100,16 @@ export default function Dock() {
                         {navigator?.share ? (
                             <>
                                 <Share2 size={16} />
-                                <span className="text-[9px]hidden sm:block text-[9px]">
-                                    Share
+                                <span className="text-[9px]">
+                                    {itemDock.share.labelShare}
                                 </span>
                             </>
                         ) : (
                             <>
                                 <LinkIcon size={16} />
-                                <span className="text-[9px]">Copy</span>
+                                <span className="text-[9px]">
+                                    {itemDock.share.labelCopy}
+                                </span>
                             </>
                         )}
                     </button>

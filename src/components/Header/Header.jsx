@@ -20,7 +20,7 @@ export default function Header() {
             <QrShare isOpen={open} onClose={handleClose} />
 
             <header className="sticky top-4 z-50 mx-auto max-w-245 mt-6 px-4">
-                <div className="bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
+                <div className="bg-black/30 border border-gray-400/30 border-t-gray-400/60 rounded-2xl">
                     <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-xl px-4 py-3 shadow-xl">
                         {/* Left */}
                         <div className="flex items-center gap-3">

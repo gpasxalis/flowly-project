@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="el">
             <body
-                className={`${fontInter.variable} ${fontRoboto.variable} min-h-screen antialiased bg-stone-950 pt-4 pb-32`}
+                className={`${fontInter.variable} ${fontRoboto.variable} min-h-screen [background:radial-gradient(125%_125%_at_50%_100%,#000000_40%,#010133_100%)] antialiased pt-4 pb-32`}
             >
                 {children}
             </body>
