@@ -5,10 +5,13 @@ import {
     Phone,
     Instagram,
     Facebook,
+    User,
 } from "lucide-react";
 
-import Link from "next/link";
 import { profile } from "@/data/profile";
+import InfoCardItem from "./InfoCardItem";
+import SocialIconButton from "./SocialIconButton";
+import { Badge, Card } from "@/components/UI";
 
 const ICONS = {
     Globe,
@@ -19,96 +22,68 @@ const ICONS = {
     Facebook,
 };
 
-const InfoCard = () => {
-    const d = profile.infoCard;
+export default function InfoCard() {
+    const profileInfo = profile.infoCard;
 
-    const infoItems = d.infoItems || [];
-    const socialItems = d.socialItems || [];
+    const infoItems = profileInfo.infoItems || [];
+    const socialItems = profileInfo.socialItems || [];
 
     return (
-        <section className="bg-white/30 dark:bg-black/10 border border-gray-400/30 border-t-gray-400/60 rounded-2xl shadow-lg">
-            <div className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xl p-5 h-full w-full">
+        <Card
+            className="shadow-lg"
+            innerClassName="p-5 h-full w-full"
+            as="section"
+        >
+            <div className="flex items-center justify-between gap-3">
                 <div className="flex flex-col gap-2">
-                    <h3 className="text-[9px] uppercase tracking-widest text-white/90 bg-indigo-600/80 dark:bg-indigo-600/40 backdrop-blur-xl w-fit px-2 py-1 rounded-full">
-                        {d.badge}
-                    </h3>
+                    <Badge>{profileInfo.badge}</Badge>
                     <h4 className="text-lg text-web-black/90 dark:text-white/90 font-semibold">
-                        {d.title}
+                        {profileInfo.title}
                     </h4>
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 gap-3">
-                    {infoItems.map((item) => {
-                        const Icon = ICONS[item.icon];
-
-                        return (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={item.label}
-                                className="group rounded-2xl border border-indigo-600 dark:border-web-black bg-indigo-200 dark:bg-web-black hover:bg-indigo-700/10 backdrop-blur-md px-2 py-2 flex items-center gap-3"
-                            >
-                                <span className="shrink-0 h-11 w-11 rounded-2xl bg-indigo-600/80 dark:bg-indigo-600/20 border border-white/10 flex items-center justify-center">
-                                    <span className="h-5 w-5 text-white/90">
-                                        {Icon ? <Icon size={18} /> : null}
-                                    </span>
-                                </span>
-                                <span className="min-w-0 flex flex-col gap-0.5">
-                                    <h4 className="text-xs font-semibold text-web-black/90 dark:text-white/90 leading-tight wrap-break-word">
-                                        {item.label}
-                                    </h4>
-                                    <p className="text-xs text-web-black/60 dark:text-white/60 leading-tight wrap-break-word">
-                                        {item.text}
-                                    </p>
-                                </span>
-                            </Link>
-                        );
-                    })}
+                <div
+                    className="p-3 flex justify-center rounded-2xl bg-white/70 dark:bg-white/10 border border-gray-400/30 text-web-black/70 dark:text-white/70 font-semibold items-center gap-2 shadow-xs"
+                    aria-hidden="true"
+                >
+                    <User size={18} />
                 </div>
+            </div>
 
-                <div className="mt-5 rounded-2xl border border-white/10 bg-indigo-600/80 dark:bg-web-black backdrop-blur-md p-4">
-                    <h4 className="text-xs font-semibold tracking-wide text-white/80">
-                        {d.socialTitle}
-                    </h4>
-                    <div className="mt-3 flex items-center gap-3">
-                        {socialItems.map((item) => {
-                            const Icon = ICONS[item.icon];
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 gap-3">
+                {infoItems.map((item) => (
+                    <InfoCardItem
+                        key={item.href}
+                        item={item}
+                        Icon={ICONS[item.icon]}
+                    />
+                ))}
+            </div>
 
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={item.label}
-                                    className="h-12 w-12 rounded-2xl bg-indigo-800 dark:bg-indigo-600/20 border border-white/10 flex items-center justify-center"
-                                    title={item.label}
-                                >
-                                    {Icon ? (
-                                        <Icon
-                                            size={18}
-                                            className="text-white/90"
-                                        />
-                                    ) : null}
-                                </Link>
-                            );
-                        })}
+            <div className="mt-5 rounded-2xl border border-indigo-600 dark:border-web-black bg-indigo-200 dark:bg-web-black backdrop-blur-md p-4">
+                <h4 className="text-xs font-semibold tracking-wide text-web-black/90 dark:text-white/80">
+                    {profileInfo.socialTitle}
+                </h4>
 
-                        <div className="ml-auto text-xs text-white/60 leading-tight">
-                            <h4 className="font-semibold text-white/80">
-                                {d.footerRight?.name}
-                            </h4>
-                            <div className="wrap-break-word">
-                                {d.footerRight?.handle}
-                            </div>
+                <div className="mt-3 flex items-center gap-3">
+                    {socialItems.map((item) => (
+                        <SocialIconButton
+                            key={item.href}
+                            item={item}
+                            Icon={ICONS[item.icon]}
+                        />
+                    ))}
+
+                    <div className="ml-auto text-xs text-web-black/60 dark:text-white/60 leading-tight">
+                        <h4 className="font-semibold text-web-black/90 dark:text-white/80">
+                            {profileInfo.footerRight?.name}
+                        </h4>
+                        <div className="wrap-break-word">
+                            {profileInfo.footerRight?.handle}
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </Card>
     );
-};
-
-export default InfoCard;
+}

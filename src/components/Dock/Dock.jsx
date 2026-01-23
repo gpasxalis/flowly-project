@@ -1,12 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { Phone, Mail, QrCode, Share2, UserPlus, LinkIcon } from "lucide-react";
 import { useState } from "react";
+import { Phone, Mail, QrCode, Share2, UserPlus, LinkIcon } from "lucide-react";
 
 import { QrShare } from "@/components/Features";
 import { profile } from "@/data/profile";
-import { ThemeToggle } from "../UI/ThemeToggle";
+import { ThemeToggle } from "@/components/UI";
+
+import DockItem from "./DockItem";
 
 const ICONS = {
     Phone,
@@ -52,73 +53,55 @@ export default function Dock() {
                         const Icon = ICONS[item.icon];
 
                         return (
-                            <Link
+                            <DockItem
                                 key={item.href}
+                                as="link"
                                 href={item.href}
-                                className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-web-black/70 dark:text-white/70 transition-all duration-200 hover:bg-web-black/5 hover:text-web-black active:bg-web-black/5 active:text-web-black focus:bg-web-black/5 focus:text-web-black hover:dark:bg-white/10 hover:dark:text-white active:dark:bg-white/10 active:dark:text-white focus:dark:bg-white/10 focus:dark:text-white"
-                            >
-                                {Icon && (
-                                    <Icon size={16} className="opacity-80" />
-                                )}
-                                <span className="hidden sm:block text-[9px]">
-                                    {item.label}
-                                </span>
-                            </Link>
+                                icon={Icon}
+                                label={item.label}
+                                ariaLabel={item.label}
+                            />
                         );
                     })}
 
                     {/* VCARD */}
                     {itemDock.vcard?.enabled && (
-                        <Link
+                        <DockItem
+                            as="link"
                             href={itemDock.vcard.href}
                             download
-                            className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-web-black/70 dark:text-white/70 transition-all duration-200 hover:bg-web-black/5 hover:text-web-black active:bg-web-black/5 active:text-web-black focus:bg-web-black/5 focus:text-web-black hover:dark:bg-white/10 hover:dark:text-white active:dark:bg-white/10 active:dark:text-white focus:dark:bg-white/10 focus:dark:text-white"
-                        >
-                            <UserPlus size={16} className="opacity-80" />
-                            <span className="hidden sm:block text-[9px]">
-                                {itemDock.vcard.label}
-                            </span>
-                        </Link>
+                            icon={UserPlus}
+                            label={itemDock.vcard.label}
+                            ariaLabel={itemDock.vcard.label}
+                        />
                     )}
 
                     {/* Divider */}
-                    <div className="mx-1 h-6 w-px bg-white/10" />
+                    <div className="mx-1 h-6 w-px bg-web-black/15 dark:bg-white/10" />
 
                     {/* QR */}
-                    <button
-                        className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-web-black/70 dark:text-white/70 transition-all duration-200 hover:bg-web-black/5 hover:text-web-black active:bg-web-black/5 active:text-web-black focus:bg-web-black/5 focus:text-web-black hover:dark:bg-white/10 hover:dark:text-white active:dark:bg-white/10 active:dark:text-white focus:dark:bg-white/10 focus:dark:text-white"
-                        aria-label={itemDock.qr.label}
+                    <DockItem
+                        as="button"
                         onClick={() => setOpen(true)}
-                    >
-                        <QrCode size={16} />
-                        <span className="hidden sm:block text-[9px]">
-                            {itemDock.qr.label}
-                        </span>
-                    </button>
+                        icon={QrCode}
+                        label={itemDock.qr.label}
+                        ariaLabel={itemDock.qr.label}
+                    />
 
                     {/* SHARE */}
-                    <button
-                        className="cursor-pointer flex flex-col items-center gap-1 rounded-full px-4 py-2 text-sm text-web-black/70 dark:text-white/70 transition-all duration-200 hover:bg-web-black/5 hover:text-web-black active:bg-web-black/5 active:text-web-black focus:bg-web-black/5 focus:text-web-black hover:dark:bg-white/10 hover:dark:text-white active:dark:bg-white/10 active:dark:text-white focus:dark:bg-white/10 focus:dark:text-white"
-                        aria-label="Share"
+                    <DockItem
+                        as="button"
                         onClick={handleShare}
-                    >
-                        {navigator?.share ? (
-                            <>
-                                <Share2 size={16} />
-                                <span className="hidden sm:block text-[9px]">
-                                    {itemDock.share.labelShare}
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                <LinkIcon size={16} />
-                                <span className="hidden sm:block text-[9px]">
-                                    {itemDock.share.labelCopy}
-                                </span>
-                            </>
-                        )}
-                    </button>
+                        icon={navigator?.share ? Share2 : LinkIcon}
+                        label={
+                            navigator?.share
+                                ? itemDock.share.labelShare
+                                : itemDock.share.labelCopy
+                        }
+                        ariaLabel="Share"
+                    />
 
+                    {/* THEME */}
                     <ThemeToggle />
                 </nav>
             </div>

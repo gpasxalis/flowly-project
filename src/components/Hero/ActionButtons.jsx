@@ -7,7 +7,7 @@ export default function ActionButtons() {
     const { actions } = profile.hero;
 
     return (
-        <div className="flex w-full justify-center gap-1">
+        <div className="flex w-full justify-center gap-0.5">
             <Link
                 className="p-3 bg-indigo-600/80 dark:bg-indigo-600/20 text-lg text-white/90 dark:text-white/70 rounded-s-lg shadow-[0_3px_8px_rgba(0,0,0,0.15)] flex justify-center items-center gap-2 w-1/3"
                 title={actions.phone.title}

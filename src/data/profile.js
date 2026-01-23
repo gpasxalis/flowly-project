@@ -4,6 +4,12 @@ import logoSymbol from "../../public/brand/logo_symbol.png";
 
 import epapanikolaou from "../../public/portfolio/epapanikolaou-website.jpg";
 import karasakalidis from "../../public/portfolio/karasakalidis-website.jpg";
+import berlinerschule from "../../public/portfolio/berlinerschule-website.jpg";
+
+import epapanikolaouCover from "../../public/covers/epapanikolaou-cover.jpg";
+import karasakalidisCover from "../../public/covers/karasakalidisltd-cover.jpg";
+import berlinerschuleCover from "../../public/covers/berlinerschule-cover.jpg";
+import dalutionFallbackCover from "../../public/covers/dalution-fallback-cover.jpg";
 
 export const profile = {
     /**
@@ -72,16 +78,16 @@ export const profile = {
      */
     portfolio: {
         badge: "Portfolio",
-        title: "Samples",
+        title: "Websites",
         helperText: "Tap a sample to view full-screen.",
-        fallbackImage: logo,
+        fallbackImage: dalutionFallbackCover,
 
         items: [
             {
                 id: "epapanikolaou",
                 title: "epapanikolaou.gr",
                 subtitle: "Preview",
-                image: epapanikolaou,
+                image: epapanikolaouCover,
                 fullSrc: epapanikolaou.src,
                 href: "https://epapanikolaou.gr",
                 ariaLabel: "Open sample: epapanikolaou.gr",
@@ -90,23 +96,24 @@ export const profile = {
                 id: "karasakalidis",
                 title: "karasakalidisltd.com",
                 subtitle: "Preview",
-                image: karasakalidis,
+                image: karasakalidisCover,
                 fullSrc: karasakalidis.src,
                 href: "https://karasakalidisltd.com",
                 ariaLabel: "Open sample: karasakalidisltd.com",
             },
             {
-                id: "test1",
-                title: "Realism",
+                id: "berlinerschule",
+                title: "berlinerschule.gr",
                 subtitle: "Preview",
-                // fullSrc: "/media/realism2.jpeg",
-                ariaLabel: "Open sample: Realism",
+                image: berlinerschuleCover,
+                fullSrc: berlinerschule.src,
+                href: "https://berlinerschule.gr",
+                ariaLabel: "Open sample: berlinerschule.gr",
             },
             {
-                id: "test2",
-                title: "Realism",
+                id: "soon",
+                title: "More websites soon",
                 subtitle: "Preview",
-                // fullSrc: "/media/realism3.jpeg",
                 ariaLabel: "Open sample: Realism",
             },
         ],

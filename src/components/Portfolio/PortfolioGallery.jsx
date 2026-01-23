@@ -103,20 +103,20 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
                             }}
                         >
                             <div
-                                className="w-full max-w-4xl rounded-3xl border border-white/10 bg-black/60 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden"
+                                className="w-full max-w-4xl rounded-3xl border border-white/10 bg-white/80 dark:bg-black/60 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 {/* Top bar */}
-                                <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-white/5">
+                                <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-white/50 dark:bg-white/5">
                                     <div className="flex items-center gap-3">
-                                        <div className="h-10 w-10 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-white/80">
+                                        <div className="h-10 w-10 rounded-2xl bg-white/70 dark:bg-white/10 border border-white/10 flex items-center justify-center text-web-black/80 dark:text-white/80">
                                             <ImageIcon size={18} />
                                         </div>
                                         <div className="leading-tight">
-                                            <div className="text-base font-semibold text-white/90">
+                                            <div className="text-base font-semibold text-web-black/90 dark:text-white/90">
                                                 {active.title}
                                             </div>
-                                            <div className="text-xs text-white/50">
+                                            <div className="text-xs text-web-black/50 dark:text-white/50">
                                                 {active.subtitle}
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
 
                                     <button
                                         type="button"
-                                        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white"
+                                        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/80 dark:bg-white/5 px-3 py-2 text-sm text-web-black/80 dark:text-white/80 transition hover:bg-white hover:text-web-black/90 focus:bg-white focus:text-web-black/90 active:bg-white active:text-web-black/90 hover:dark:bg-white/10 hover:dark:text-white focus:dark:bg-white/10 focus:dark:text-white active:dark:bg-white/10 active:dark:text-white"
                                         onClick={close}
                                         aria-label="Close preview"
                                     >
@@ -136,8 +136,8 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
                                 </div>
 
                                 {/* Preview image */}
-                                <div className="bg-black/30 p-4">
-                                    <div className="relative mx-auto max-h-[70dvh] overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                                <div className="bg-white/30 dark:bg-black/30 p-4">
+                                    <div className="relative mx-auto max-h-[70dvh] overflow-hidden rounded-2xl border border-white/10 bg-black/10 dark:bg-black/40">
                                         <img
                                             src={active.fullSrc}
                                             alt={active.title}
@@ -147,12 +147,12 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
                                 </div>
 
                                 {/* Bottom bar */}
-                                <div className="flex items-center justify-between gap-3 px-4 py-3 border-t border-white/10 bg-white/5">
+                                <div className="flex items-center justify-between gap-3 px-4 py-3 border-t border-white/10 bg-white/50 dark:bg-white/5">
                                     <div className="leading-tight">
-                                        <div className="text-sm font-semibold text-white/90">
+                                        <div className="text-sm font-semibold text-web-black/90 dark:text-white/90">
                                             {active.title}
                                         </div>
-                                        <div className="text-xs text-white/50">
+                                        <div className="text-xs text-web-black/50 dark:text-white/50">
                                             Tap outside to close • Press Esc
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
                                             href={active.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white"
+                                            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/80 dark:bg-white/5 px-4 py-2 text-sm text-web-black/80 dark:text-white/80 transition hover:bg-white hover:text-web-black/90 focus:bg-white focus:text-web-black active:bg-white/90 active:text-web-black/90 hover:dark:bg-white/10 hover:dark:text-white focus:dark:bg-white/10 focus:dark:text-white active:dark:bg-white/10 active:dark:text-white"
                                             aria-label={`Open ${active.title}`}
                                         >
                                             <SquareArrowOutUpRight size={16} />
@@ -170,14 +170,14 @@ export default function PortfolioGallery({ items = [], fallbackImage }) {
                                         </Link>
                                     ) : (
                                         <Link
-                                            href={active.fullSrc}
+                                            href="https://dalution.gr"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white"
+                                            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/80 dark:bg-white/5 px-4 py-2 text-sm text-web-black/80 dark:text-white/80 transition hover:bg-white hover:text-web-black/90 focus:bg-white focus:text-web-black active:bg-white/90 active:text-web-black/90 hover:dark:bg-white/10 hover:dark:text-white focus:dark:bg-white/10 focus:dark:text-white active:dark:bg-white/10 active:dark:text-white"
                                             aria-label="Open image in new tab"
                                         >
                                             <SquareArrowOutUpRight size={16} />
-                                            Open
+                                            Dalution
                                         </Link>
                                     )}
                                 </div>

@@ -49,7 +49,7 @@ export default function ProfileHeader() {
                     <Link
                         href={hero.vcf.href}
                         download
-                        className="p-3 flex justify-center rounded-2xl bg-white/70 dark:bg-white/10 border border-gray-400/30 text-web-black/70 dark:text-white/70 font-semibold items-center gap-2 shadow-xl"
+                        className="p-3 flex justify-center rounded-2xl bg-white/70 dark:bg-white/10 border border-gray-400/30 text-web-black/70 dark:text-white/70 font-semibold items-center gap-2 shadow-xs"
                         aria-label="Add to contacts"
                     >
                         <UserPlus size={18} />
